@@ -1,7 +1,69 @@
+// MaterializeCss initializers
+
 var elem = document.querySelectorAll('.scrollspy');
 elem.forEach((el, index) => {
     M.ScrollSpy.init(el, { throttle: 1 });
 });
+
+elem = document.querySelectorAll('.materialboxed');
+elem.forEach((el, index) => {
+    M.Materialbox.init(el);
+});
+
+// Custom Modals
+
+var apps = document.querySelectorAll(".app");
+var modals_close = document.querySelectorAll(".s-modal-close");
+
+// Really should extract a function out of these bad guys.
+
+apps.forEach((app, index) => {
+    app.addEventListener("click", () => {
+        var modalId = app.getAttribute('modal-id');
+        if (modalId) {
+            var modal = document.querySelector("#" + modalId);
+            modal.style.display = '';
+        }
+    })
+});
+
+modals_close.forEach((mclose, index) => {
+    mclose.addEventListener("click", () => {
+        apps.forEach((app, index) => {
+            var modalId = app.getAttribute('modal-id');
+            if (modalId) {
+                var modal = document.querySelector("#" + modalId);
+                modal.style.display = 'none';
+            }
+        });
+    })
+})
+
+window.addEventListener("click", (event) => {
+    apps.forEach((app, index) => {
+        var modalId = app.getAttribute('modal-id');
+        if (modalId) {
+            var modal = document.querySelector("#" + modalId);
+            if (event.target == modal) {
+                modal.style.display = 'none';
+            }
+        }
+    });
+})
+
+window.addEventListener("keydown", (event) => {
+    if (event.keyCode == 27) {
+        apps.forEach((app, index) => {
+            var modalId = app.getAttribute('modal-id');
+            if (modalId) {
+                var modal = document.querySelector("#" + modalId);
+                modal.style.display = 'none';
+            }
+        });
+    }
+});
+
+// Skills chart
 
 Chart.defaults.global.defaultFontSize = 20;
 Chart.defaults.global.defaultFontStyle = 'normal';
