@@ -108,12 +108,15 @@ var chart = new Chart(ctx, {
 var sendButton = document.querySelector("#send-email");
 if (sendButton) {
     sendButton.addEventListener("click", () => {
-        var email = document.querySelector(".email").value;
-        var emailBody = document.querySelector(".subject").value;
-        Email.send(email,
+        var email = document.querySelector(".email");
+        var emailBody = document.querySelector(".subject");
+        Email.send(email.value,
             "mohamednagy2015@outlook.com",
-            "Portofolio, " + email + " would like an Android app!",
-            emailBody,
+            "Portofolio, " + email.value + " would like an Android app!",
+            emailBody.value,
             { token: "b44232e5-62c2-4c89-a4f4-6f901bd76ba7", callback: (message) => { console.log(message)} });
+
+        email.value = '';
+        emailBody.value = '';
     });
 }
