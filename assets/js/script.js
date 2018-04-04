@@ -102,3 +102,18 @@ var chart = new Chart(ctx, {
         },
     }
 });
+
+// Emailing
+
+var sendButton = document.querySelector("#send-email");
+if (sendButton) {
+    sendButton.addEventListener("click", () => {
+        var email = document.querySelector(".email").value;
+        var emailBody = document.querySelector(".subject").value;
+        Email.send(email,
+            "mohamednagy2015@outlook.com",
+            "Portofolio, " + email + " would like an Android app!",
+            emailBody,
+            { token: "b44232e5-62c2-4c89-a4f4-6f901bd76ba7", callback: (message) => { console.log(message)} });
+    });
+}
