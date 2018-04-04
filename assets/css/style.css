@@ -5,8 +5,10 @@ body {
 /* ABOUT ME Section  */
 
 .about-me {
-    background: linear-gradient(to right, powderblue, blueviolet);
+    background: radial-gradient(gray, black);
+    /* background-color: #282828; */
     padding: 20px;
+    color: white;
 }
 
 .about-me img {
@@ -15,8 +17,6 @@ body {
 }
 
 .about-me h1 {
-    margin-top: 0px;
-    margin-bottom: 0px;
     font-weight: bold;
 }
 
@@ -26,13 +26,33 @@ body {
 
 .about-me .nav a {
     padding: 20px;
-    color: black;
+    color: white;
+    font-size: 1.1em;
     z-index: 0; /* No idea why the hell is this required, otherwise they appear above the images. */
     transition: background-color 0.5s ease;
 }
 
 .about-me .nav a:hover {
-    background-color: rgb(122, 0, 126);
+    background-color: rgb(239, 207, 0);
+}
+
+@media only screen and (max-width: 600px) {
+    .about-me .nav a {
+        display: none;
+    }
+
+    .about-me img {
+        width: 200px;
+        height: 200px;
+    }
+
+    h1 {
+        font-size: 3em;
+    }
+
+    p {
+        font-size: 1.4em;
+    }
 }
 
 
@@ -57,6 +77,7 @@ body {
 
 .project-name {
     font-size: 1.5em;
+    font-weight: bold;
 }
 
 .project-overlay {
@@ -80,11 +101,7 @@ body {
 /* Skills Section */
 
 .skills {
-    background-color: #00C1C8;
-}
-
-.skills canvas {
-    font-weight: bold;
+    background-color: #282828;
 }
 
 /* Contact section */
@@ -99,11 +116,6 @@ body {
     border-radius: 2px;
     height: 200px;
     resize: vertical;
-}
-
-.email {
-    border: none;
-    padding: 5px;
 }
 
 .footer {
@@ -211,4 +223,14 @@ body {
 
 .s-modal-close:hover {
     color: gray;
+}
+
+@media only screen and (max-width: 800px) {
+    .s-modal-content {
+        padding-left: 20px;
+        padding-right: 20px;
+        padding-top: 14em;
+        overflow: auto;
+        height: 100%;
+    }
 }

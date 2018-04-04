@@ -65,7 +65,8 @@ window.addEventListener("keydown", (event) => {
 
 // Skills chart
 
-Chart.defaults.global.defaultFontSize = 14;
+Chart.defaults.global.defaultFontSize = 20;
+Chart.defaults.global.defaultFontColor = 'white';
 // Chart.defaults.global.defaultFontStyle = 'normal';
 
 var ctx = document.getElementById('skills-chart').getContext('2d');
