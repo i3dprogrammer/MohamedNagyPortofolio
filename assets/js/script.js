@@ -9,9 +9,6 @@ elem.forEach((el, index) => {
     M.ScrollSpy.init(el, { throttle: 1 });
 });
 
-elem = document.querySelector('.slider');
-var instance = M.Slider.init(elem, { interval: 2000, height: 500 });
-
 // Hide the scrollbars after enlarging a picture.
 function hideScrollbar() {
     html_doc.style.overflowY = 'hidden';
