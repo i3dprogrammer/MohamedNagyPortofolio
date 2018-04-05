@@ -137,7 +137,7 @@ body {
 }
 
 .s-modal-image {
-    position: fixed;
+    position: absolute;
     float: left;
     background-color: white;
     width: 200px;
@@ -158,10 +158,13 @@ body {
 
 .s-modal-container {
     position: absolute;
-    left: 50%;
-    top: 40%;
+    overflow-x: hidden;
+    overflow-y: hidden;
+    margin: 5em;
     width: 1%;
     height: 1%;
+    left: 50%;
+    top: 40%;
     background-color: white;
     z-index: 2;
     animation: test-animation 1s forwards;
@@ -173,19 +176,20 @@ body {
         width: 1%;
         height: 1%;
     }
-    20% {
-        padding: 0px;
+    50% {
         width: 90%;
         height: 1%;
-        left: 5%;
+        left: 0%;
         top: 40%;
     }
+    99% {
+        height: 90%;
+    }
     100% {
-        padding: 20xp;
         width: 90%;
-        height: 80%;
-        left: 5%;
-        top: 10%;
+        height: auto;
+        left: 0%;
+        top: 0%;
     }
 }
 
@@ -196,20 +200,21 @@ body {
 .s-modal-header::after {
     display: block;
     content: '';
-    width: 100%;
-    height: 1px;
+    /* width: 100%; */
+    height: 5px;
     background-color: black;
 }
 
 .s-modal-content {
     padding-left: 14em;
     padding-right: 14em;
-    overflow: auto;
     height: 100%;
 }
 
 .s-modal-text {
-    margin-top: 50px;
+    /* margin-top: 50px; */
+    padding-top: 25px;
+    padding-bottom: 25px;
 }
 
 .s-modal-close {
