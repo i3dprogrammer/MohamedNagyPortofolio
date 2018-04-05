@@ -1,3 +1,7 @@
+var apps = document.querySelectorAll(".app");
+var modals_close = document.querySelectorAll(".s-modal-close");
+var html_doc = document.documentElement;
+
 // MaterializeCss initializers
 
 var elem = document.querySelectorAll('.scrollspy');
@@ -5,15 +9,20 @@ elem.forEach((el, index) => {
     M.ScrollSpy.init(el, { throttle: 1 });
 });
 
+elem = document.querySelector('.slider');
+var instance = M.Slider.init(elem, {interval: 2000, height: 500});
+
+// Hide the scrollbars after enlarging a picture.
+function hideScrollbar(){
+    html_doc.style.overflowY = 'hidden';
+}
+
 elem = document.querySelectorAll('.materialboxed');
 elem.forEach((el, index) => {
-    M.Materialbox.init(el);
+    M.Materialbox.init(el, {onCloseEnd: hideScrollbar, onOpenEnd: hideScrollbar});
 });
 
 // Custom Modals
-
-var apps = document.querySelectorAll(".app");
-var modals_close = document.querySelectorAll(".s-modal-close");
 
 // Really should extract a function out of these bad guys.
 
@@ -23,6 +32,7 @@ apps.forEach((app, index) => {
         if (modalId) {
             var modal = document.querySelector("#" + modalId);
             modal.style.display = '';
+            html_doc.style.overflowY = 'hidden';
         }
     })
 });
@@ -34,6 +44,7 @@ modals_close.forEach((mclose, index) => {
             if (modalId) {
                 var modal = document.querySelector("#" + modalId);
                 modal.style.display = 'none';
+                html_doc.style.overflowY = 'auto';
             }
         });
     })
@@ -46,6 +57,7 @@ window.addEventListener("click", (event) => {
             var modal = document.querySelector("#" + modalId);
             if (event.target == modal) {
                 modal.style.display = 'none';
+                html_doc.style.overflowY = 'auto';
             }
         }
     });
@@ -58,6 +70,7 @@ window.addEventListener("keydown", (event) => {
             if (modalId) {
                 var modal = document.querySelector("#" + modalId);
                 modal.style.display = 'none';
+                html_doc.style.overflowY = 'auto';
             }
         });
     }
