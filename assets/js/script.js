@@ -140,3 +140,7 @@ if (sendButton) {
             });
     });
 }
+
+document.querySelectorAll('ul').forEach((el, index) => {
+    el.classList.add('browser-default');
+})
