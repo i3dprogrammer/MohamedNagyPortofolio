@@ -5,8 +5,9 @@ body {
 /* ABOUT ME Section  */
 
 .about-me {
-    background: radial-gradient(gray, black);
-    /* background-color: #282828; */
+    /* background: radial-gradient(gray, black); */
+    
+    background-color: #282828;
     padding: 20px;
     color: white;
 }
